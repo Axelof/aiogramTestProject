@@ -1,0 +1,15 @@
+{
+  "database": {
+    "url": "mongodb://localhost:27017",
+    "name": "testingAiogramProject"
+  },
+  "redis": {
+    "host": "...",
+    "port": 5432
+  },
+  "bot": {
+    "token": "...",
+    "log_level": 20,
+    "debug": true
+  }
+}
