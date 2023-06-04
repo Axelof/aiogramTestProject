@@ -1,6 +1,6 @@
 {
   "database": {
-    "url": "",
+    "url": null,
     "username": "postgres",
     "password": "",
     "host": "localhost",
@@ -8,7 +8,7 @@
     "name": "aiogramProject"
   },
   "redis": {
-    "url": "",
+    "url": null,
     "host": "localhost",
     "port": 6379,
     "password": ""
