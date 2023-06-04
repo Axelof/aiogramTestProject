@@ -1,6 +1,8 @@
 from aiogram import Dispatcher
 from aiogram.utils import executor
 
+from tortoise import Tortoise
+
 from bot.config import logger, dp
 
 

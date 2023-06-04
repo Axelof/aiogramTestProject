@@ -1,15 +1,21 @@
 {
   "database": {
-    "url": "mongodb://localhost:27017",
-    "name": "testingAiogramProject"
+    "url": "",
+    "username": "postgres",
+    "password": "",
+    "host": "localhost",
+    "port": 5432,
+    "name": "aiogramProject"
   },
   "redis": {
-    "host": "...",
-    "port": 5432
+    "url": "",
+    "host": "localhost",
+    "port": 6379,
+    "password": ""
   },
   "bot": {
-    "token": "...",
-    "log_level": 20,
+    "token": "",
+    "logging": "INFO",
     "debug": true
   }
 }

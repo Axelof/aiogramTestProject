@@ -1,12 +1,20 @@
+from tortoise import Tortoise
+
 from bot.config import config, logger
 
-from bot.database.engine import Database
-from bot.database.wrapper import DatabaseWrapper
 
-db: DatabaseWrapper = DatabaseWrapper(database_instance=Database(config.database.url, config.database.name))
+async def init():
+    await Tortoise.init(
+        db_url=config.database.get_url(),
+        modules={'models': ['bot.database.models']}
+    )
 
-logger.info("Database connection established.")
+    await Tortoise.generate_schemas()
 
-__all__ = (
-    "db",
-)
+    logger.info("Database connection established")
+
+
+async def close_connections():
+    await Tortoise.close_connections()
+
+    logger.info("Database connections terminated")

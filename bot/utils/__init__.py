@@ -7,7 +7,9 @@ if platform == "linux" or platform == "linux2":
     import uvloop
 
     asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
-    logger.info("uvloop \"EventLoopPolicy\" configured")
+
+    if logger.debug_enabled:
+        logger.debug("uvloop \"EventLoopPolicy\" configured")
 
 loop = asyncio.get_event_loop()
 
