@@ -1,16 +1,17 @@
 from aiogram import Dispatcher
 from aiogram.utils import executor
 
-from tortoise import Tortoise
-
 from bot.config import logger, dp
+import bot.database as database
 
 
 async def startup(dp: Dispatcher) -> None:
+    await database.init()
     logger.info("bot started")
 
 
 async def shutdown(dp: Dispatcher) -> None:
+    await database.close_connections()
     logger.info("bot finished")
 
 

@@ -3,7 +3,7 @@ from __future__ import annotations
 import enum
 from typing import Optional
 
-from pydantic import BaseModel, validator, PostgresDsn, RedisDsn, SecretStr
+from pydantic import BaseModel, validator, PostgresDsn, RedisDsn, SecretStr, AnyUrl
 
 
 class LoggingLevel(str, enum.Enum):
@@ -14,7 +14,7 @@ class LoggingLevel(str, enum.Enum):
 
 
 class _Database(BaseModel):
-    url: Optional[PostgresDsn]
+    url: Optional[AnyUrl]
     username: Optional[str]
     password: Optional[str]
     host: Optional[str]
@@ -25,7 +25,7 @@ class _Database(BaseModel):
         if self.url:
             return self.url
         if all((self.username, self.password, self.host, self.port, self.database)):
-            return f"postgres+asyncpg://{self.username}:{self.password}@{self.host}:{self.port}/{self.database}"
+            return f"asyncpg://{self.username}:{self.password}@{self.host}:{self.port}/{self.database}"
         return None
 
     @validator("port")

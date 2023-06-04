@@ -18,3 +18,9 @@ async def close_connections():
     await Tortoise.close_connections()
 
     logger.info("Database connections terminated")
+
+
+__all__ = (
+    "init",
+    "close_connections"
+)
